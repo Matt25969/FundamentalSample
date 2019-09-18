@@ -1,9 +1,16 @@
 package package1;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
+
+import Models.Item;
+import Models.User;
 
 public class Logic {
 
-	public void createNewItem(Scanner sc1) {
+	public void createNewItem(Scanner sc1, Connection connection) {
 
 		System.out.println("Type the name of the item you which too add");
 		String itemName = sc1.next();
@@ -12,14 +19,18 @@ public class Logic {
 
 		Item newItem = new Item(itemName, itemValue);
 
-		// save the item
-		
-		
+		try (Statement statement = connection.createStatement()) {
+			
+			statement.executeUpdate("INSERT INTO Item (name, value)" + "VALUES ( 'Java', 1992)");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		System.out.println("Item successfully added");
 
 	}
-	
+
 	public void createNewUser(Scanner sc1) {
 
 		System.out.println("Type the name of the user you which too add");
@@ -33,9 +44,26 @@ public class Logic {
 
 	}
 
-	public void displayItems(Scanner sc1) {
+	public void displayItems(Scanner sc1, Connection connection) {
 
-		// get all from the database
+
+		try (Statement statement = connection.createStatement()) {
+			
+			ResultSet rs = statement.executeQuery("SELECT * FROM Item");
+
+			while (rs.next()) {
+				  int id = rs.getInt("id");
+				  String name = rs.getString("name");
+				  int date = rs.getInt("value");
+				  System.out.println("ID: " + id + ", name: " + name + ", value: " + date);
+				  }
+				rs.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
 
 	}
 

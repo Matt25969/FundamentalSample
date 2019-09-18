@@ -1,9 +1,12 @@
 package package1;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class Input {
 
-	public void start() {
+	public void start(Connection connection) {
 
 		Logic logic = new Logic();
 
@@ -20,7 +23,7 @@ public class Input {
 
 			case "1":
 
-				logic.createNewItem(sc1);
+				logic.createNewItem(sc1, connection);
 				break;
 				
 			case "2":
@@ -30,7 +33,7 @@ public class Input {
 
 			case "3":
 
-				logic.displayItems(sc1);
+				logic.displayItems(sc1, connection);
 				break;
 
 			case "4":
