@@ -20,7 +20,9 @@ public class Persistence {
 
 		System.out.println("Connecting to database...");
 
-		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+//		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		
+		conn = DriverManager.getConnection("jdbc:mysql://static-chiller-249115:europe-west1:test2?user=user_name");
 
 		System.out.println("Creating statement...");
 
