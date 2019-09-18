@@ -20,8 +20,8 @@ public class Runner {
 		 String databaseName = "mysql";
 
 		 String IP_of_instance = "10.26.0.3";
-		 String username = "<mysql username>";
-		 String password = "<mysql password>";
+		 String username = "root";
+		 String password = "4o1cLtNzIE7opwec";
 
 		String jdbcUrl = String.format(
 				"jdbc:mysql://%s/%s?cloudSqlInstance=%s"
