@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class Item {
 	
@@ -10,6 +10,14 @@ public class Item {
 		this.name = itemName;
 		this.value = itemValue;
 		
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 }

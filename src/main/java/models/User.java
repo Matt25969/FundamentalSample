@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class User {
 
@@ -6,6 +6,10 @@ public class User {
 	
 	public User(String userName) {
 		this.name = userName;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 }
